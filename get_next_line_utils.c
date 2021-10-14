@@ -6,7 +6,7 @@
 /*   By: msotelo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 12:45:47 by msotelo-          #+#    #+#             */
-/*   Updated: 2021/10/13 20:16:48 by msotelo-         ###   ########.fr       */
+/*   Updated: 2021/10/14 14:40:15 by msotelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -80,9 +80,10 @@ char	*ft_strchr(const char *s, int c)
 
 	i = 0;
 	a = (char *)s;
-	len = ft_strlen(s) + 1;
+	len = ft_strlen(s);
 	while (len > 0)
 	{
+	//	printf("lo que apunta a:%c\n",a[i]);
 		if (a[i] == (char)c)
 		{
 			return (&a[i]);
