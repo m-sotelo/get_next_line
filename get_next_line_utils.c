@@ -29,6 +29,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
 	int		i;
+
 	int		j;
 
 	if (!s1 || !s2)
@@ -69,6 +70,7 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	s2[i] = '\0';
+	//free(s1) aqui no deberia haber que liberar ya que s1 no esta alocada
 	return (s2);
 }
 
@@ -119,5 +121,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len--;
 	}
 	s1[j] = '\0';
+	//free(s); hay que liberar?
 	return (s1);
 }
