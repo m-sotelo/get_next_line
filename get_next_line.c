@@ -40,15 +40,19 @@ char	*trim_line(char *res, char **buf)
 	aux = *buf;
 	if(!*aux)
 		return (NULL);
-	while(*aux != '\n' && *aux)
+	while(*aux != '\n' && *aux)//si pongo el if abajo necesito esa condicion en el while?
 	{
 		aux++;
 		start++;
 	}
 	start++;
+	//aux++;
 	res = ft_substr(*buf, 0, start);
 	if(!*aux)//leaks aqui cuando quede algo en el buf pero luego no sobre que hacer?
+//	{
+//		free(*buf);
 		return(res);
+//	}
 	while(*aux)
 	{
 		aux++;
@@ -57,7 +61,7 @@ char	*trim_line(char *res, char **buf)
 	aux = ft_substr(*buf, start, len);
 	free(*buf);
 	*buf = aux;
-return(res);
+	return(res);
 }
 
 char	*read_line(char **buf, char *res, int fd){
@@ -112,10 +116,9 @@ char	*get_next_line(int fd)
 	i = 0;
 	i  = open("test.txt" , O_RDONLY);
 	x = get_next_line(i);
-	system("leaks get_next_line");
 	printf("esto es el final:%s", x);
 	x = get_next_line(i);
 	printf("esto es el fina2:%s", x);
 //	x = get_next_line(i, 3);
 //	printf("esto es el fina3:%s", x);
-}*/
+}/*
